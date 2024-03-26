@@ -8,7 +8,7 @@ public class Interface {
         //Try catch to read the file
         try {
             //Getting a buffered reader object to go through the given file
-            File file = new File(args[0]);
+            File file = new File("src/test.txt");
             BufferedReader br = new BufferedReader(new FileReader(file));
             String tempLabel; //Storing the input from the file
             String tempTypeData;
@@ -56,7 +56,83 @@ public class Interface {
 
         //Getting user input
         StringReader keyboard = new StringReader();
-        String line = keyboard.read("Enter next command: ");
+        String[] words;
+        String line = "";
+        Record d;
+        while (!line.equals("quit")) {
+            line = keyboard.read("Enter next command: ");
+            words = line.trim().split(" "); //Splitting the words into a space separated list
+            switch (words[0]) { //Using a switch for the first word inputted by the user
+                case "define":
+                    d = dict.get(new Key(words[1], 1));
+                    if (d == null) {
+                        System.out.println("The word " + words[1] + " is not in the ordered dictionary");
+                    } else {
+                        System.out.println(d.getDataItem());
+                    }
+                    break;
+                case "translate":
+                    d = dict.get(new Key(words[1], 2));
+                    if (d == null) {
+                        System.out.println("There is no definition for the word " + words[1]);
+                    } else {
+                        System.out.println(d.getDataItem());
+                    }
+                    break;
+                case "sound":
+                    d = dict.get(new Key(words[1], 3));
+                    if (d == null) {
+                        System.out.println("There is no sound file for " + words[1]);
+                    } else {
+                        System.out.println(d.getDataItem());
+                    }
+                    break;
+                case "play":
+                    d = dict.get(new Key(words[1], 4));
+                    if (d == null) {
+                        System.out.println("There is no music file for " + words[1]);
+                    } else {
+                        System.out.println(d.getDataItem());
+                    }
+                    break;
+                case "say":
+                    d = dict.get(new Key(words[1], 5));
+                    if (d == null) {
+                        System.out.println("There is no image file for " + words[1]);
+                    } else {
+                        System.out.println(d.getDataItem());
+                    }
+                    break;
+                case "animate":
+                    d = dict.get(new Key(words[1], 7));
+                    if (d == null) {
+                        System.out.println("There is no animated image file for " + words[1]);
+                    } else {
+                        System.out.println(d.getDataItem());
+                    }
+                    break;
+                case "browse":
+                    d = dict.get(new Key(words[1], 8));
+                    if (d == null) {
+                        System.out.println("There is no webpage " + words[1]);
+                    } else {
+                        System.out.println(d.getDataItem());
+                    }
+                    break;
+                case "delete":
+                    try {
+                        dict.remove(new Key(words[1], Integer.parseInt(words[2])));
+                    } catch (DictionaryException e) {
+                        System.out.println("No record in the dictionary has key (" + words[1] + ", " + words[2] + ")");
+                    }
+                    break;
+            }
+
+
+        }
+
 
     }
+
+
 }
