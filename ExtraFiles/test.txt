@@ -1,0 +1,12 @@
+homework
+Very enjoyable work that students enjoy very much
+roar
+-roar.wav
+flower
+flower.jpg
+computer
+*computer.mid
+course
+https://www.csd.uwo.ca/Courses/CS2210a/index.html
+music
++sound.mp3
