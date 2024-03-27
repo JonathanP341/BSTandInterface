@@ -71,9 +71,9 @@ public class TestDict {
         if (alltests || test == 4)
             try {
                 dictionary.put(records[1]);
-                dictionary.printTree();
+                //dictionary.printTree();
                 dictionary.remove(keys[1]);
-                dictionary.printTree(); //Printing out the dictyionary
+                //dictionary.printTree(); //Printing out the dictyionary
                 rec = dictionary.get(keys[1]);
                 if (rec == null) System.out.println("Test 4 passed");
                 else System.out.println("Test 4 failed");
@@ -101,13 +101,13 @@ public class TestDict {
                 dictionary.remove(keys[0]);
                 dictionary.put(records[1]);
                 dictionary.put(records[0]);
-                dictionary.printTree();
+                //dictionary.printTree();
                 for (int i = 2; i < 5; ++i) {
                     dictionary.put(records[i]);
                     //dictionary.printTree();
                     System.out.println(records[i].getKey().getLabel());
                 }
-                dictionary.printTree();
+                //dictionary.printTree();
                 //System.out.println(keys[3].getLabel());
                 System.out.println(dictionary.get(new Key("computer", 2)).getKey().getLabel());
                 rec = dictionary.successor(keys[3]);
@@ -165,7 +165,7 @@ public class TestDict {
         try {
 
             // Insert a large number of words in the dictionary
-            BufferedReader in = new BufferedReader(new FileReader("src/large.txt"));
+            BufferedReader in = new BufferedReader(new FileReader("large.txt"));
             String word = in.readLine();
             String definition;
             boolean test10 = true;
